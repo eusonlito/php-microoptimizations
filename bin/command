@@ -1,0 +1,10 @@
+#!/usr/bin/env php
+<?php
+require __DIR__.'/../src/App/bootstrap.php';
+
+array_shift($argv);
+
+$app = new App\App\Command;
+$app->execute(array_shift($argv), $argv);
+
+exit;

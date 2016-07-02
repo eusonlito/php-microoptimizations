@@ -1,0 +1,18 @@
+CREATE TABLE `test` (
+    `id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    `name` VARCHAR NOT NULL,
+    `description` VARCHAR NOT NULL,
+
+    UNIQUE(`name`)
+);
+
+CREATE TABLE `result` (
+    `id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    `date` DATE,
+    `version` FLOAT NOT NULL,
+    `time` FLOAT NOT NULL,
+    `memory` FLOAT NOT NULL,
+    `test_id` INTEGER NOT NULL,
+
+    FOREIGN KEY(`test_id`) REFERENCES `test`(`id`) ON DELETE CASCADE
+);

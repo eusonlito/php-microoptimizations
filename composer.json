@@ -1,0 +1,36 @@
+{
+    "name": "eusonlito/php-microoptimizations",
+    "keywords": ["php","microoptimizations"],
+    "description": "Simple PHP web application to compare PHP commands",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Lito",
+            "email": "lito@eordes.com"
+        }
+    ],
+    "config": {
+        "vendor-dir": "vendor"
+    },
+    "require": {
+        "php": ">=5.3",
+        "simple-crud/simple-crud": "6.3.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "php bin/command clear-compiled",
+            "composer dump-autoload --optimize",
+            "php bin/command compile"
+        ],
+        "post-update-cmd": [
+            "php bin/command clear-compiled",
+            "composer dump-autoload --optimize"
+        ]
+    },
+    "minimum-stability": "stable"
+}

@@ -1,0 +1,6 @@
+/.composer
+/cache
+/vendor
+
+*.sh
+*.swp
