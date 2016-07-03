@@ -16,7 +16,7 @@ class ForeachUniqueIssetTest extends TestInterface
 
         $unique = array();
 
-        foreach ($unique as $value) {
+        foreach ($values as $value) {
             if (!isset($unique[$value])) {
                 $unique[$value] = true;
             }
