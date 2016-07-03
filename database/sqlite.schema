@@ -1,4 +1,4 @@
-DROP TABLE `test`;
+DROP TABLE IF EXISTS `test`;
 CREATE TABLE `test` (
     `id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
     `name` VARCHAR NOT NULL DEFAULT '',
@@ -7,7 +7,7 @@ CREATE TABLE `test` (
     UNIQUE(`name`)
 );
 
-DROP TABLE `result`;
+DROP TABLE IF EXISTS `result`;
 CREATE TABLE `result` (
     `id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
     `date` DATE,

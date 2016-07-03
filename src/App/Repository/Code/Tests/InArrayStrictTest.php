@@ -3,8 +3,6 @@ namespace App\Repository\Code\Tests;
 
 class InArrayStrictTest extends TestInterface
 {
-    protected $loopLimit = 200000;
-
     public function getDescription()
     {
         return 'Check if value is in array (strict)';

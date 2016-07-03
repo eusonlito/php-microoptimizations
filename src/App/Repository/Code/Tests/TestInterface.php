@@ -12,7 +12,7 @@ abstract class TestInterface
     protected $source;
     protected $loop;
 
-    protected $loopLimit = 1000000;
+    protected $loopLimit = 100000;
 
     abstract public function getDescription();
     abstract public function run($loop);

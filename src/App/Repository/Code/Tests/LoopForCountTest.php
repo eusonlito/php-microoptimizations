@@ -1,22 +1,21 @@
 <?php
 namespace App\Repository\Code\Tests;
 
-class InArrayTest extends TestInterface
+class LoopForCountTest extends TestInterface
 {
     public function getDescription()
     {
-        return 'Check if value is in array';
+        return 'Create loop with for and count values in each iteration';
     }
 
     public function run($loop)
     {
         $values = $this->getRangeStrings($loop);
-        $uniques = array_slice($values, 0, count($values) / 2);
 
         $this->start($loop);
 
-        foreach ($values as $value) {
-            in_array($value, $uniques);
+        for ($key = 0; $key < count($values); $key++) {
+            $value = $values[$key];
         }
 
         return $this->end();

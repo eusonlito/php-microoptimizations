@@ -1,8 +1,6 @@
 <?php
 namespace App\Router;
 
-use App\Exception;
-
 class Router
 {
     private $url;

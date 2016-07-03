@@ -1,8 +1,6 @@
 <?php
 namespace App\App;
 
-use App\Exception;
-
 class Controller
 {
     private static $namespace = 'App\\Controller';
