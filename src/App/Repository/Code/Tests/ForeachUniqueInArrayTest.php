@@ -3,7 +3,7 @@ namespace App\Repository\Code\Tests;
 
 class ForeachUniqueInArrayTest extends TestInterface
 {
-    protected $loopLimit = 100000;
+    protected $loopLimit = 200000;
 
     public function getDescription()
     {
