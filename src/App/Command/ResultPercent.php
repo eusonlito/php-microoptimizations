@@ -14,7 +14,7 @@ class ResultPercent extends CommandInterface
 
         foreach (Result::byTest($test->id) as $row) {
             if ($row->date === $date) {
-                $rows[$row->date.'|'.$row->loop]['results'][] = $row;
+                $rows[$row->loop]['results'][] = $row;
             }
         }
 
