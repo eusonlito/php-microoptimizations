@@ -15,9 +15,8 @@ class IsFileTest extends TestInterface
         $this->start($loop);
 
         for ($i = 0; $i < $this->loop; ++$i) {
-            is_file($file);
-
             clearstatcache();
+            $value = is_file($file);
         }
 
         unlink($file);

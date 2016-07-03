@@ -2,6 +2,8 @@
 
 # Contributions
 
+All tests must realize a minimum operation into loop (like a counter).
+
 ## With fork/pull-request
 
 * Fork this repository

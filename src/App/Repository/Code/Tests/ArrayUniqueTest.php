@@ -14,7 +14,7 @@ class ArrayUniqueTest extends TestInterface
 
         $this->start($loop);
 
-        array_unique($values);
+        $values = array_unique($values);
 
         return $this->end();
     }

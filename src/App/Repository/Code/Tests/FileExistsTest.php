@@ -15,9 +15,8 @@ class FileExistsTest extends TestInterface
         $this->start($loop);
 
         for ($i = 0; $i < $this->loop; ++$i) {
-            file_exists($file);
-
             clearstatcache();
+            $value = file_exists($file);
         }
 
         unlink($file);

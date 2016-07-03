@@ -15,7 +15,7 @@ class NotIssetTest extends TestInterface
         $this->start($loop);
 
         for ($i = 0; $i < $this->loop; ++$i) {
-            !isset($values[$i]);
+            $value = !isset($values[$i]);
         }
 
         return $this->end();

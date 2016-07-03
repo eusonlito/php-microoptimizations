@@ -15,7 +15,7 @@ class NotEmptyTest extends TestInterface
         $this->start($loop);
 
         for ($i = 0; $i < $this->loop; ++$i) {
-            !empty($values[$i]);
+            $value = !empty($values[$i]);
         }
 
         return $this->end();

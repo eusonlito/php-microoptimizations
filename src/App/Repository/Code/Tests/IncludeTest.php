@@ -15,9 +15,8 @@ class IncludeTest extends TestInterface
         $this->start($loop);
 
         for ($i = 0; $i < $this->loop; ++$i) {
-            include $file;
-
             clearstatcache();
+            include $file;
         }
 
         unlink($file);

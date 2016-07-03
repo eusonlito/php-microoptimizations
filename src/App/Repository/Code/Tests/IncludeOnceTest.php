@@ -15,9 +15,8 @@ class IncludeOnceTest extends TestInterface
         $this->start($loop);
 
         for ($i = 0; $i < $this->loop; ++$i) {
-            include_once $file;
-
             clearstatcache();
+            include_once $file;
         }
 
         unlink($file);

@@ -15,7 +15,7 @@ class PathinfoExtensionTest extends TestInterface
         $file = '/tmp/'.uniqid().'.jpg';
 
         for ($i = 0; $i < $this->loop; ++$i) {
-            strtolower(pathinfo($file, PATHINFO_EXTENSION));
+            $value = strtolower(pathinfo($file, PATHINFO_EXTENSION));
         }
 
         return $this->end();

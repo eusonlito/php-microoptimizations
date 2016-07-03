@@ -15,7 +15,7 @@ class SubstrExtensionTest extends TestInterface
         $file = '/tmp/'.uniqid().'.jpg';
 
         for ($i = 0; $i < $this->loop; ++$i) {
-            strtolower(substr(strrchr($file, '.'), 1));
+            $value = strtolower(substr(strrchr($file, '.'), 1));
         }
 
         return $this->end();

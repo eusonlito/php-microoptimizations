@@ -16,7 +16,7 @@ class InArrayStrictTest extends TestInterface
         $this->start($loop);
 
         foreach ($values as $value) {
-            in_array($value, $uniques, true);
+            $value = in_array($value, $uniques, true);
         }
 
         return $this->end();

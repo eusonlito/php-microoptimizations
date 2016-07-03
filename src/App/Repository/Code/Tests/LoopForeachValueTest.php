@@ -14,7 +14,9 @@ class LoopForeachValueTest extends TestInterface
 
         $this->start($loop);
 
-        foreach ($values as $value);
+        foreach ($values as $value) {
+            $value++;
+        }
 
         return $this->end();
     }

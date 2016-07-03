@@ -13,7 +13,7 @@ class DateStrtotimeTest extends TestInterface
         $this->start($loop);
 
         for ($i = 0; $i < $this->loop; ++$i) {
-            date('Y-m-d', strtotime('2016-07-01 23:59:59'));
+            $value = date('Y-m-d', strtotime('2016-07-01 23:59:59'));
         }
 
         return $this->end();

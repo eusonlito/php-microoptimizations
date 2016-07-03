@@ -13,7 +13,7 @@ class CamelCasePregReplaceTest extends TestInterface
         $this->start($loop);
 
         for ($i = 0; $i < $this->loop; ++$i) {
-            preg_replace_callback('/[^a-zA-Z0-9]+([a-zA-Z0-9])/', function($matches) {
+            $value = preg_replace_callback('/[^a-zA-Z0-9]+([a-zA-Z0-9])/', function($matches) {
                 return ucfirst($matches[1]);
             }, strtolower('id_company_user_'.$i));
         }

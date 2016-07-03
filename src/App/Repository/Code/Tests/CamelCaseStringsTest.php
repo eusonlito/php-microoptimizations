@@ -13,7 +13,7 @@ class CamelCaseStringsTest extends TestInterface
         $this->start($loop);
 
         for ($i = 0; $i < $this->loop; ++$i) {
-            lcfirst(str_replace(' ', '', ucwords(str_replace(array('-', '_'), ' ', 'id_company_user_'.$i))));
+            $value = lcfirst(str_replace(' ', '', ucwords(str_replace(array('-', '_'), ' ', 'id_company_user_'.$i))));
         }
 
         return $this->end();

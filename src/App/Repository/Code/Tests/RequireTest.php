@@ -15,9 +15,8 @@ class RequireTest extends TestInterface
         $this->start($loop);
 
         for ($i = 0; $i < $this->loop; ++$i) {
-            require $file;
-
             clearstatcache();
+            require $file;
         }
 
         unlink($file);

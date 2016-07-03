@@ -15,9 +15,8 @@ class RequireOnceTest extends TestInterface
         $this->start($loop);
 
         for ($i = 0; $i < $this->loop; ++$i) {
-            require_once $file;
-
             clearstatcache();
+            require_once $file;
         }
 
         unlink($file);

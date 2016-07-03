@@ -16,7 +16,7 @@ class InArrayTest extends TestInterface
         $this->start($loop);
 
         foreach ($values as $value) {
-            in_array($value, $uniques);
+            $value = in_array($value, $uniques);
         }
 
         return $this->end();
