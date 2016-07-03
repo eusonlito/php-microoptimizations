@@ -4,54 +4,9 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "7e656be8c7ac5ab06a21bc617723cf30",
-    "content-hash": "d79ec07c7f82d709767fa681b4593696",
-    "packages": [
-        {
-            "name": "simple-crud/simple-crud",
-            "version": "v6.3.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/oscarotero/simple-crud.git",
-                "reference": "24097b9e457baa525195610b4e7cabc595d935e4"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/oscarotero/simple-crud/zipball/24097b9e457baa525195610b4e7cabc595d935e4",
-                "reference": "24097b9e457baa525195610b4e7cabc595d935e4",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.4"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "SimpleCrud\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Oscar Otero",
-                    "email": "oom@oscarotero.com",
-                    "homepage": "http://oscarotero.com",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Create/Read/Update/Delete easily",
-            "homepage": "https://github.com/oscarotero/simple-crud",
-            "keywords": [
-                "crud",
-                "mysql",
-                "sqlite"
-            ],
-            "time": "2016-07-01 11:24:58"
-        }
-    ],
+    "hash": "e28fd7d4192279e80951e708c8cd809a",
+    "content-hash": "8e310757fcdd2b497ee845ea4641039d",
+    "packages": [],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
