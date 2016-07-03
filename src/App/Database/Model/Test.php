@@ -47,6 +47,15 @@ class Test
         ', $data);
     }
 
+    public static function addVisit($id)
+    {
+        return DB::update('
+            UPDATE `test`
+            SET `visits` = `visits` + 1
+            WHERE id = :id;
+        ', array('id' => $id));
+    }
+
     public static function deleteById($id)
     {
         return DB::delete('

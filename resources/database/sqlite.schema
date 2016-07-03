@@ -4,6 +4,8 @@ CREATE TABLE `test` (
     `name` VARCHAR NOT NULL DEFAULT '',
     `description` VARCHAR NOT NULL DEFAULT '',
 
+    `visits` INTEGER NOT NULL DEFAULT '0',
+
     UNIQUE(`name`)
 );
 
@@ -21,4 +23,19 @@ CREATE TABLE `result` (
     UNIQUE(`date`, `loop`, `version`, `test_id`),
 
     FOREIGN KEY(`test_id`) REFERENCES `test`(`id`) ON DELETE CASCADE
+);
+
+DROP TABLE IF EXISTS `stat_compare`;
+CREATE TABLE `stat_compare` (
+    `id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+
+    `test_id_1` INTEGER NOT NULL,
+    `test_id_2` INTEGER NOT NULL,
+
+    `visits` INTEGER NOT NULL DEFAULT '0',
+
+    UNIQUE(`test_id_1`, `test_id_2`),
+
+    FOREIGN KEY(`test_id_1`) REFERENCES `test`(`id`) ON DELETE CASCADE,
+    FOREIGN KEY(`test_id_2`) REFERENCES `test`(`id`) ON DELETE CASCADE
 );

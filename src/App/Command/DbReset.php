@@ -14,6 +14,6 @@ class DbReset extends CommandInterface
             unlink($file);
         }
 
-        shell_exec(sprintf('cat "%s" | sqlite3 "%s"', APP_BASE_PATH.'/database/sqlite.schema', $file));
+        shell_exec(sprintf('cat "%s" | sqlite3 "%s"', APP_BASE_PATH.'/resources/database/sqlite.schema', $file));
     }
 }

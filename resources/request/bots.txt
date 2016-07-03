@@ -1,0 +1,165 @@
+360Spider(-Image|-Video)?
+Aboundex
+AcoonBot
+AddThis\.com
+AhrefsBot
+ia_archiver|alexabot|verifybot
+AmorankSpider
+Applebot
+Curious George
+archive\.org_bot|special_archiver
+Ask Jeeves/Teoma
+Backlink-Ceck\.de
+BacklinkCrawler
+baiduspider(-image)?|baidu Transcoder|baidu.*spider
+BazQux
+MSNBot|msrbot|bingbot|BingPreview|msnbot-(UDiscovery|NewsBlogs)|adidxbot
+Blekkobot
+BLEXBot(Test)?
+Bloglovin
+Blogtrottr
+BountiiBot
+Browsershots
+BUbiNG
+(?<!HTC)[ _]Butterfly/
+CareerBot
+CCBot
+Cliqzbot
+CloudFlare-AlwaysOnline
+coccoc/
+CommaFeed
+Daum(oa)?[ /][0-9]
+Dazoobot
+discobot(-news)?
+Domain Re-Animator Bot|support@domainreanimator.com
+DotBot
+EasouSpider
+EMail Exractor
+Exabot(-Thumbnails|-Images)?|ExaleadCloudview
+ExactSeek Crawler
+Ezooms
+facebookexternalhit|facebookplatform
+Feedbin
+FeedBurner
+Feed Wrangler
+(Meta)?Feedly(Bot|App)?
+Feedspot
+Fever/[0-9]
+Genieo
+Gluten Free Crawler
+ichiro/mobile goo
+Google Page Speed Insights
+google_partner_monitoring
+via ggpht\.com GoogleImageProxy
+Googlebot(-Mobile|-Image|-Video|-News)?|Feedfetcher-Google|Google-Test|Google-Site-Verification|Google Web Preview|AdsBot-Google(-Mobile)?|Mediapartners-Google|Google.*/\+/web/snippet|GoogleProducer|Google[ -]Publisher[ -]Plugin
+heritrix
+HTTPMon
+ICC-Crawler
+iisbot
+kouio
+larbin
+linkdexbot(-mobile)?|linkdex\.com
+LinkedInBot
+ltx71
+Mail\.RU(_Bot)?
+magpie-crawler
+MagpieRSS
+meanpathbot
+MixrankBot
+MJ12bot
+MojeekBot
+NalezenCzBot
+Netcraft Web Server Survey
+Netvibes
+NewsBlur .*(Fetcher|Finder)
+NewsGatorOnline
+nlcrawler
+omgilibot
+OpenindexSpider
+spbot
+OpenWebSpider
+OrangeBot|VoilaBot
+PaperLiBot
+phpservermon
+psbot(-page)?
+Pingdom\.com
+QuerySeekerSpider
+redditbot
+rogerbot
+ROI Hunter
+Scrapy
+Screaming Frog SEO Spider
+ScreenerBot
+SemrushBot
+SensikaBot
+SEOENG(World)?Bot
+SkypeUriPreview
+SeznamBot|SklikBot|Seznam screenshot-generator
+ShopWiki
+SilverReader
+SimplePie
+SISTRIX Crawler
+Slackbot|Slack-ImgProxy
+(Sogou (web|inst|Pic) spider)|New-Sogou-Spider
+Sosospider|Sosoimagespider
+Superfeedr bot
+Spinn3r
+Sputnik(Image)?Bot
+SurveyBot
+TelegramBot
+TinEye-bot
+Tiny Tiny RSS
+TurnitinBot
+TweetedTimes Bot
+TweetmemeBot
+Twitterbot
+UptimeRobot
+URLAppendBot
+VSMCrawler
+Jigsaw
+W3C_I18n-Checker
+W3C-checklink
+W3C_Validator
+W3C-mobileOK
+W3C_Unicorn
+WebbCrawler
+websitepulse[+ ]checker
+Wotbox
+yacybot
+Yahoo! Slurp|Yahoo!-AdCrawler
+YahooCacheSystem
+Yandex(Bot|Images|Antivirus|Direct|Blogs|Favicons|ImageResizer|News(links)?|Metrika|\.Gazeta Bot)|YaDirectFetcher
+Yeti
+YoudaoBot
+YOURLS v[0-9]
+YRSpider|YYSpider
+Zookabot
+ZumBot
+YottaaMonitor
+Yahoo Ad monitoring.*yahoo-ad-monitoring-SLN24857.*
+.*Java.*outbrain
+HubPages.*crawlingpolicy
+Pinterest/\d\.\d.*www\.pinterest\.com.*
+Site24x7
+www\.monitor\.us
+Zao/
+lycos
+Slurp
+Speedy Spider
+ScoutJet
+nrsbot|netresearch
+scooter
+gigabot
+charlotte
+Pompos
+ichiro
+PagePeeker
+WebThumbnail
+Willow Internet Crawler
+EmailWolf
+NetLyzer FastProbe
+AdMantX.*admantx\.com
+Server Density Service Monitoring.*
+(A6-Indexer|nuhk|TsolCrawler|Yammybot|Openbot|Gulper Web Bot|grub-client|Download Demon|SearchExpress|Microsoft URL Control|borg|altavista|teoma|blitzbot|oegp|furlbot|http%20client|polybot|htdig|mogimogi|larbin|scrubby|searchsight|seekbot|semanticdiscovery|snappy|vortex(?! Build)|zeal|fast-webcrawler|converacrawler|dataparksearch|findlinks|BrowserMob|HttpMonitor|ThumbShotsBot|URL2PNG|ZooShot|GomezA|Catchpoint bot|Google SketchUp|Read%20Later|Minimo|RackspaceBot)
+Nutch
+[a-z0-9\-_]*((?<!cu)bot|crawler|archiver|transcoder|spider)([^a-z]|$)
