@@ -22,7 +22,6 @@
     },
     "scripts": {
         "post-install-cmd": [
-            "php bin/command clear-compiled",
             "composer dump-autoload --optimize"
         ],
         "post-update-cmd": [
