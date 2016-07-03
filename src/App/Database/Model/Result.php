@@ -42,8 +42,7 @@ class Result
                 , `time` = :time
                 , `memory` = :memory
                 , `percent` = :percent
-            WHERE id = :id
-            LIMIT 1;
+            WHERE id = :id;
         ', $data);
     }
 }

@@ -43,26 +43,21 @@ class Test
             SET
                 `name` = :name
                 , `description` = :description
-            WHERE id = :id
-            LIMIT 1;
+            WHERE id = :id;
         ', $data);
     }
 
     public static function deleteById($id)
     {
         return DB::delete('
-            DELETE FROM `test`
-            WHERE `id` = :id
-            LIMIT 1;
+            DELETE FROM `test` WHERE `id` = :id;
         ', array('id' => $id));
     }
 
     public static function deleteByName($name)
     {
         return DB::delete('
-            DELETE FROM `test`
-            WHERE `name` = :name
-            LIMIT 1;
+            DELETE FROM `test` WHERE `name` = :name;
         ', array('name' => $name));
     }
 }
