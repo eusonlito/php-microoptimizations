@@ -15,7 +15,7 @@
 <?= packer()->css(array(
     'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css',
     'https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css',
-    '/css/bootstrap.min.css',
+    '/css/dataTables.bootstrap.min.css',
     '/css/business-casual.css',
     '/css/custom.css'
 )); ?>
@@ -26,3 +26,16 @@
     <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
+
+<script type="text/javascript">
+var WWW = "<?= route('/') ?>";
+</script>
+
+<?= packer()->js(array(
+    'https://code.jquery.com/jquery-2.2.0.min.js',
+    'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js',
+    'https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js',
+    '/js/dataTables.bootstrap.min.js',
+    '/js/jquery.matchHeight.js',
+    '/js/custom.js'
+)); ?>

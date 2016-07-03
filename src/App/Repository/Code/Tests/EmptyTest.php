@@ -10,7 +10,7 @@ class EmptyTest extends TestInterface
 
     public function run($loop)
     {
-        $values = array_flip(range(1, $this->getLoop($loop), 3));
+        $values = array_flip($this->getRange($loop));
 
         $this->start($loop);
 

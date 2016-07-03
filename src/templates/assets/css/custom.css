@@ -27,6 +27,10 @@ footer a:hover {
     padding: 20px 100px;
 }
 
+.box.box-large {
+    padding: 20px;
+}
+
 @media (max-width: 960px) {
     .box {
         padding: 20px;

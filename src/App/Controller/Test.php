@@ -17,7 +17,7 @@ class Test extends Controller
         return array(
             'test' => $test,
             'results' => Model\Result::byTest($test->id),
-            'source' => Code\Test::get($test->name)->getSource()
+            'source' => Code\Test::getObject($test->name)->getSource()
         );
     }
 
@@ -26,10 +26,10 @@ class Test extends Controller
         $data = $this->getData($code);
 
         if (empty($data)) {
-            return self::page('body', 'error.404');
+            return $this->error404();
         }
 
-        return self::page('body', 'test.detail', $data);
+        return $this->page('body', 'test.detail', $data);
     }
 
     public function compare($code1, $code2)
@@ -38,10 +38,10 @@ class Test extends Controller
         $data2 = $this->getData($code2);
 
         if (empty($data1) || empty($data2)) {
-            return self::page('body', 'error.404');
+            return $this->error404();
         }
 
-        return self::page('body', 'test.compare', array(
+        return $this->page('body', 'test.compare', array(
             'test1' => $data1,
             'test2' => $data2
         ));

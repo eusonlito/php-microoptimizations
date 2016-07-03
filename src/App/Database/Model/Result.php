@@ -21,13 +21,29 @@ class Result
         ', array('test_id' => $test_id));
     }
 
-    public static function insert($data)
+    public static function insert(array $data)
     {
         return DB::insert('
             INSERT OR IGNORE INTO `result`
             (`date`, `loop`, `version`, `time`, `memory`, `test_id`)
             VALUES
             (:date, :loop, :version, :time, :memory, :test_id);
+        ', $data);
+    }
+
+    public static function update(array $data)
+    {
+        return DB::update('
+            UPDATE `result`
+            SET
+                `date` = :date
+                , `loop` = :loop
+                , `version` = :version
+                , `time` = :time
+                , `memory` = :memory
+                , `percent` = :percent
+            WHERE id = :id
+            LIMIT 1;
         ', $data);
     }
 }

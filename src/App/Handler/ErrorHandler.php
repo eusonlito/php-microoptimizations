@@ -1,6 +1,8 @@
 <?php
 namespace App\Handler;
 
+use App\Controller;
+
 abstract class ErrorHandler
 {
     protected static function error($errno, $errstr, $errfile, $errline)
@@ -28,6 +30,17 @@ abstract class ErrorHandler
 
     protected static function printHtml($errno, $errstr, $errfile, $errline)
     {
+        $config = config('app');
+
+        if (empty($config['debug'])) {
+            template()->set('body', 'pages.error.default', array(
+                'title' => '404 - Not Found',
+                'message' => 'Our site is currently unable to handle this request'
+            ));
+
+            return template()->show('layout.base');
+        }
+
         template()->show('layout.error', array(
             'number' => $errno,
             'code' => self::getErrorName($errno),

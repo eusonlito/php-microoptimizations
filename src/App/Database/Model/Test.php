@@ -12,6 +12,13 @@ class Test
         ');
     }
 
+    public static function byId($id)
+    {
+        return DB::selectOne('
+            SELECT * FROM `test` WHERE `id` = :id LIMIT 1;
+        ', array('id' => $id));
+    }
+
     public static function byName($name)
     {
         return DB::selectOne('
@@ -29,7 +36,7 @@ class Test
         ', $data);
     }
 
-    public static function update($data)
+    public static function update(array $data)
     {
         return DB::update('
             UPDATE `test`
@@ -39,5 +46,23 @@ class Test
             WHERE id = :id
             LIMIT 1;
         ', $data);
+    }
+
+    public static function deleteById($id)
+    {
+        return DB::delete('
+            DELETE FROM `test`
+            WHERE `id` = :id
+            LIMIT 1;
+        ', array('id' => $id));
+    }
+
+    public static function deleteByName($name)
+    {
+        return DB::delete('
+            DELETE FROM `test`
+            WHERE `name` = :name
+            LIMIT 1;
+        ', array('name' => $name));
     }
 }

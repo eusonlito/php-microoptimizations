@@ -2,6 +2,7 @@
 namespace App\Repository\Code\Tests;
 
 use ReflectionMethod;
+use App\Exception;
 
 abstract class TestInterface
 {
@@ -23,6 +24,10 @@ abstract class TestInterface
 
     public function getLoop($loop)
     {
+        if (!is_int($loop)) {
+            throw new Exception\UnexpectedValueException('Loop value must be an integer');
+        }
+
         return ($loop > $this->loopLimit) ? $this->loopLimit : $loop;
     }
 
@@ -48,24 +53,41 @@ abstract class TestInterface
         return $this->source = trim(preg_replace('/\n{2,}/', "\n\n", $source));
     }
 
-    public function getTempFile()
+    protected function getTempFile()
     {
         return tempnam(sys_get_temp_dir(), '_');
     }
 
-    public function start($loop)
+    protected function getRangeStrings($loop)
+    {
+        return array_map(function($value) {
+            return 'value:'.intval($value / 10);
+        }, range(0, $this->getLoop($loop) - 1));
+    }
+
+    protected function getRange($loop)
+    {
+        return array_map(function($value) {
+            return intval($value / 10);
+        }, range(0, $this->getLoop($loop) - 1));
+    }
+
+    protected function start($loop)
     {
         $this->microtime = microtime(true);
         $this->memory = memory_get_usage();
         $this->loop = $this->getLoop($loop);
     }
 
-    public function end()
+    protected function end()
     {
         return array(
+            'name' => $this->getName(),
+            'description' => $this->getDescription(),
             'time' => (microtime(true) - $this->microtime),
             'memory' => (memory_get_peak_usage() - $this->memory),
-            'loop' => $this->loop
+            'loop' => $this->loop,
+            'php' => PHP_MAJOR_VERSION.'.'.PHP_MINOR_VERSION.'.'.PHP_RELEASE_VERSION
         );
     }
 }

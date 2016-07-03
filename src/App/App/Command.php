@@ -18,8 +18,8 @@ class Command
         }
 
         $class = Check::getClass('App\\Command', ucfirst(camelCase(basename($command))));
-
         $class = new $class;
-        $class->run($arguments);
+
+        return call_user_func_array(array($class, 'run'), $arguments);
     }
 }

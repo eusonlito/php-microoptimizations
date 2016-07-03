@@ -2,116 +2,46 @@
 namespace App\Repository\Code;
 
 use App\App\Check;
-use App\Exception;
 
 class Test
 {
     /**
      * @var array
      */
-    private static $tests = array();
+    private static $names = array();
 
-    /**
-     * @var string
-     */
-    private $name;
-
-    /**
-     * @var object
-     */
-    private $test;
-
-    /**
-     * @var array
-     */
-    private $stats = array();
-
-    public static function getAll()
+    public static function getAllNames()
     {
-        if (self::$tests) {
-            return self::$tests;
+        if (self::$names) {
+            return self::$names;
         }
 
         foreach (glob(__DIR__.'/Tests/*.php') as $file) {
             $file = preg_replace('/\.php$/', '', basename($file));
 
             if (substr($file, -4) === 'Test') {
-                self::$tests[] = $file;
+                self::$names[] = $file;
             }
         }
 
-        return self::$tests;
-    }
-
-    public static function get($test = null)
-    {
-        return self::loadTest($test);
+        return self::$names;
     }
 
     public static function getAllObjects()
     {
         $tests = array();
 
-        foreach (self::getAll() as $test) {
-            $tests[$test] = self::loadTest($test);
+        foreach (self::getAllNames() as $test) {
+            $tests[$test] = self::getObject($test);
         }
 
         return $tests;
     }
 
-    public function __construct($test)
-    {
-        $this->checkTest($test);
-
-        $this->name = $test;
-        $this->test = self::loadTest($test);
-
-        return $this;
-    }
-
-    public function run($loop)
-    {
-        $this->checkLoop($loop);
-
-        $loop = $this->test->getLoop($loop);
-
-        if (isset($this->stats[$loop])) {
-            return $this;
-        }
-
-        $this->stats[$loop] = $this->test->run($loop);
-
-        return $this;
-    }
-
-    public function getStats()
-    {
-        return array(
-            'name' => $this->name,
-            'description' => $this->test->getDescription(),
-            'stats' => $this->stats,
-            'php' => PHP_MAJOR_VERSION.'.'.PHP_MINOR_VERSION.'.'.PHP_RELEASE_VERSION
-        );
-    }
-
-    private static function loadTest($test)
+    public static function getObject($test)
     {
         $test = Check::getClass(__NAMESPACE__.'\\Tests', $test);
 
         return new $test;
-    }
-
-    private function checkTest($test)
-    {
-        if (!in_array($test, self::getAll(), true)) {
-            throw new Exception\UnexpectedValueException('Test not exists');
-        }
-    }
-
-    private function checkLoop($loop)
-    {
-        if (!is_int($loop)) {
-            throw new Exception\UnexpectedValueException('Loop value must be an integer');
-        }
     }
 }

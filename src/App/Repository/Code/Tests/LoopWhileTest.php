@@ -1,11 +1,11 @@
 <?php
 namespace App\Repository\Code\Tests;
 
-class ArrayUniqueTest extends TestInterface
+class LoopWhileTest extends TestInterface
 {
     public function getDescription()
     {
-        return 'Create an array without duplicates from a range using array_unique';
+        return 'Create loop with while';
     }
 
     public function run($loop)
@@ -14,7 +14,9 @@ class ArrayUniqueTest extends TestInterface
 
         $this->start($loop);
 
-        array_unique($values);
+        while (list($key) = each($values)) {
+            $value = $values[$key];
+        }
 
         return $this->end();
     }

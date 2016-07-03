@@ -1,11 +1,11 @@
 <?php
 namespace App\Repository\Code\Tests;
 
-class ArrayUniqueTest extends TestInterface
+class LoopForeachValueTest extends TestInterface
 {
     public function getDescription()
     {
-        return 'Create an array without duplicates from a range using array_unique';
+        return 'Create loop with foreach (only value)';
     }
 
     public function run($loop)
@@ -14,7 +14,7 @@ class ArrayUniqueTest extends TestInterface
 
         $this->start($loop);
 
-        array_unique($values);
+        foreach ($values as $value);
 
         return $this->end();
     }

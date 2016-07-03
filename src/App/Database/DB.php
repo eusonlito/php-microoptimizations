@@ -51,4 +51,9 @@ class DB
     {
         return self::pdo()->prepare($query)->execute($data);
     }
+
+    public static function delete($query, array $data)
+    {
+        return self::pdo()->prepare($query)->execute($data);
+    }
 }

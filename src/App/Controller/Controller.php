@@ -16,34 +16,33 @@ abstract class Controller
         ));
     }
 
-    public static function getClass($name)
+    public function getClass($name)
     {
         return new $name;
     }
 
-    protected static function page($name, $file, array $parameters = array())
+    protected function page($name, $file, array $parameters = array())
     {
-        return self::template($name, 'pages.'.$file, $parameters);
+        return $this->template($name, 'pages.'.$file, $parameters);
     }
 
-    protected static function content($file, array $parameters = array())
+    protected function content($file, array $parameters = array())
     {
-        self::page('body', explode('.', $file)[0].'.layout');
+        $this->page('body', explode('.', $file)[0].'.layout');
 
-        return self::page('content', $file, $parameters);
+        return $this->page('content', $file, $parameters);
     }
 
-    protected static function template($name, $file, array $parameters = array())
+    protected function template($name, $file, array $parameters = array())
     {
         return template()->set($name, $file, $parameters);
     }
 
-    protected static function error($layout, $message)
+    protected function error404()
     {
-        self::page('body', $layout.'.layout');
-
-        return self::template('content', 'molecules.error', array(
-            'message' => $message
+        return $this->page('body', 'error.404', array(
+            'title' => '404 - Not Found',
+            'message' => 'Our site is currently unable to handle this request'
         ));
     }
 }

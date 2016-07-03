@@ -10,15 +10,17 @@ class ForeachUniqueTest extends TestInterface
 
     public function run($loop)
     {
+        $values = $this->getRangeStrings($loop);
+
         $this->start($loop);
 
-        $values = array();
+        $unique = array();
 
-        foreach (range(range(1, $this->loop, 3), range(1, $this->loop, 2)) as $value) {
-            $values[$value] = true;
+        foreach ($values as $value) {
+            $unique[$value] = true;
         }
 
-        $values = array_keys($values);
+        $unique = array_keys($unique);
 
         return $this->end();
     }

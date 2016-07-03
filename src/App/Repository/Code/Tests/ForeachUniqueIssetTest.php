@@ -10,17 +10,19 @@ class ForeachUniqueIssetTest extends TestInterface
 
     public function run($loop)
     {
+        $values = $this->getRangeStrings($loop);
+
         $this->start($loop);
 
-        $values = array();
+        $unique = array();
 
-        foreach (range(range(1, $this->loop, 3), range(1, $this->loop, 2)) as $value) {
-            if (!isset($values[$value])) {
-                $values[$value] = true;
+        foreach ($unique as $value) {
+            if (!isset($unique[$value])) {
+                $unique[$value] = true;
             }
         }
 
-        $values = array_keys($values);
+        $unique = array_keys($unique);
 
         return $this->end();
     }

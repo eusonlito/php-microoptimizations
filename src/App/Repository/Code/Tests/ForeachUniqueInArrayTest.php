@@ -3,6 +3,8 @@ namespace App\Repository\Code\Tests;
 
 class ForeachUniqueInArrayTest extends TestInterface
 {
+    protected $loopLimit = 100000;
+
     public function getDescription()
     {
         return 'Create an array without duplicates from a range using foreach, checking existing with in_array and keys as values';
@@ -10,13 +12,15 @@ class ForeachUniqueInArrayTest extends TestInterface
 
     public function run($loop)
     {
+        $values = $this->getRangeStrings($loop);
+
         $this->start($loop);
 
-        $values = array();
+        $unique = array();
 
-        foreach (range(range(1, $this->loop, 3), range(1, $this->loop, 2)) as $value) {
-            if (!in_array($value, $values)) {
-                $values[] = $value;
+        foreach ($values as $value) {
+            if (!in_array($value, $unique)) {
+                $unique[] = $value;
             }
         }
 
