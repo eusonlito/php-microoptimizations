@@ -24,8 +24,6 @@ class ResultPercent extends CommandInterface
             }, $row['results']));
 
             foreach ($row['results'] as $result) {
-                $result->percent = round(($result->time * 100) / $fast);
-
                 Result::update(array(
                     'id' => $result->id,
                     'date' => $result->date,
@@ -33,7 +31,7 @@ class ResultPercent extends CommandInterface
                     'version' => $result->version,
                     'time' => $result->time,
                     'memory' => $result->memory,
-                    'percent' => $result->percent
+                    'percent' => round(($result->time * 100) / $fast)
                 ));
             }
         }
