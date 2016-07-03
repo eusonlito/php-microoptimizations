@@ -38,8 +38,10 @@ class Router
 
     private function parseUrl($url)
     {
-        $url = parse_url($url);
         $base = parse_url(Route::getPublicUrl());
+        $base['path'] = isset($base['path']) ? $base['path'] : '';
+
+        $url = parse_url($url);
 
         $path = array_filter(explode('/', str_replace($base['path'], '', $url['path'])));
 
