@@ -5,7 +5,7 @@ class ExplodeTest extends TestInterface
 {
     public function getDescription()
     {
-        return 'Split a string and get the first element';
+        return 'Split a string with explode and get the first element';
     }
 
     public function run($loop)

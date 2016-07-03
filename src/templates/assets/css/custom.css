@@ -10,6 +10,25 @@ h1, h2, h3, h4, h5, h6 {
     text-transform: none;
 }
 
+footer a {
+    color: black;
+    font-weight: bold;
+}
+
+footer a:hover {
+    text-decoration: none;
+}
+
 .brand a {
     color: white;
+}
+
+.box {
+    padding: 20px 100px;
+}
+
+@media (max-width: 960px) {
+    .box {
+        padding: 20px;
+    }
 }

@@ -1,11 +1,11 @@
 <?php
 namespace App\Repository\Code\Tests;
 
-class CamelCaseStringsTest extends TestInterface
+class ExplodeLimitTest extends TestInterface
 {
     public function getDescription()
     {
-        return 'Create a camelCase string using lcfirst/str_replace/uc_words';
+        return 'Split a string with explode (limit) and get the first element';
     }
 
     public function run($loop)
@@ -13,7 +13,8 @@ class CamelCaseStringsTest extends TestInterface
         $this->start($loop);
 
         for ($i = 0; $i < $this->loop; ++$i) {
-            lcfirst(str_replace(' ', '', ucwords(str_replace(array('-', '_'), ' ', 'id_company_user_'.$i))));
+            $value = explode(' ', '2016-07-01 23:59:59', 2);
+            $value = $value[0];
         }
 
         return $this->end();

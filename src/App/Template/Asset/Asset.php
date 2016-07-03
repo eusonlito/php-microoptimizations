@@ -63,12 +63,12 @@ abstract class Asset
 
     protected function storageAsset($file)
     {
-        return Route::getPublicPath('/assets/'.ltrim($file, '/'));
+        return Route::getPublicPath('/storage/assets/'.ltrim($file, '/'));
     }
 
     protected function publicAsset($file)
     {
-        return Route::getPublicUrl('/assets/'.ltrim($file, '/'));
+        return Route::getPublicUrl('/storage/assets/'.ltrim($file, '/'));
     }
 
     protected function isExternal($file)

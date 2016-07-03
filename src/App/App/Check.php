@@ -10,7 +10,7 @@ class Check
         $class = $namespace.'\\'.$name;
 
         if (!class_exists($class)) {
-            throw new Exception\NotFoundException(__('Class %s not exists', $class));
+            throw new Exception\NotFoundException(__('Class "%s" not exists', $class));
         }
 
         return $class;
@@ -19,7 +19,7 @@ class Check
     public static function getMethod($class, $method)
     {
         if (!method_exists($class, $method)) {
-            throw new Exception\NotFoundException(__('Method %s in Class %s not exists', $method, $class));
+            throw new Exception\NotFoundException(__('Method "%s" in Class "%s" not exists', $method, get_class($class)));
         }
 
         return $method;

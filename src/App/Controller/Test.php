@@ -2,19 +2,48 @@
 namespace App\Controller;
 
 use App\Repository\Code;
+use App\Database\Model;
 
 class Test extends Controller
 {
-    public function detail($code)
+    private function getData($code)
     {
-        try {
-            $test = Code\Test::get($code);
-        } catch (Exception $e) {
+        $test = Model\Test::byName($code);
+
+        if (empty($test)) {
             return;
         }
 
-        return self::page('body', 'test.detail', array(
-            'test' => $test
+        return array(
+            'test' => $test,
+            'results' => Model\Result::byTest($test->id),
+            'source' => Code\Test::get($test->name)->getSource()
+        );
+    }
+
+    public function detail($code)
+    {
+        $data = $this->getData($code);
+
+        if (empty($data)) {
+            return self::page('body', 'error.404');
+        }
+
+        return self::page('body', 'test.detail', $data);
+    }
+
+    public function compare($code1, $code2)
+    {
+        $data1 = $this->getData($code1);
+        $data2 = $this->getData($code2);
+
+        if (empty($data1) || empty($data2)) {
+            return self::page('body', 'error.404');
+        }
+
+        return self::page('body', 'test.compare', array(
+            'test1' => $data1,
+            'test2' => $data2
         ));
     }
 }

@@ -3,8 +3,6 @@ namespace App\Repository\Code\Tests;
 
 class CamelCasePregReplaceTest extends TestInterface
 {
-    protected $loopLimit = 100000;
-
     public function getDescription()
     {
         return 'Create a camelCase string using preg_replace_callback';

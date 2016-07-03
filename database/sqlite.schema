@@ -1,3 +1,4 @@
+DROP TABLE `test`;
 CREATE TABLE `test` (
     `id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
     `name` VARCHAR NOT NULL,
@@ -6,13 +7,17 @@ CREATE TABLE `test` (
     UNIQUE(`name`)
 );
 
+DROP TABLE `result`;
 CREATE TABLE `result` (
     `id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
     `date` DATE,
-    `version` FLOAT NOT NULL,
+    `loop` INTEGER NOT NULL,
+    `version` VARCHAR NOT NULL,
     `time` FLOAT NOT NULL,
     `memory` FLOAT NOT NULL,
     `test_id` INTEGER NOT NULL,
+
+    UNIQUE(`date`, `loop`, `version`, `test_id`),
 
     FOREIGN KEY(`test_id`) REFERENCES `test`(`id`) ON DELETE CASCADE
 );

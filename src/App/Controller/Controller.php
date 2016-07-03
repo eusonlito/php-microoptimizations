@@ -1,10 +1,8 @@
 <?php
 namespace App\Controller;
 
-use Exception as BaseException;
-use App\Exception;
 use App\Router\Router;
-use App\Template\Template;
+use App\Database\Model;
 
 abstract class Controller
 {
@@ -13,7 +11,8 @@ abstract class Controller
         meta()->set('title', 'PHP micro-optimizations');
 
         template()->share(array(
-            'ROUTE' => $router->getRoute()
+            'ROUTE' => $router->getRoute(),
+            'TESTS' => Model\Test::all()
         ));
     }
 

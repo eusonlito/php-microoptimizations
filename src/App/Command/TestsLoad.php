@@ -1,8 +1,8 @@
 <?php
 namespace App\Command;
 
-use App\Database\DB;
-use App\Repository\Code\Test;
+use App\Database\Model;
+use App\Repository\Code;
 
 class TestsLoad extends CommandInterface
 {
@@ -12,18 +12,33 @@ class TestsLoad extends CommandInterface
     {
         $current = array();
 
-        foreach (DB::table('test')->select()->run() as $test) {
-            $current[$test->code] = $test;
+        foreach (Model\Test::all() as $test) {
+            $current[$test->name] = $test;
         }
 
-        foreach (Test::getAll() as $test) {
-            $test = new Test($test);
-
-            foreach ($this->loops as $loop) {
-                $test->run($loop);
+        foreach (Code\Test::getAllObjects() as $test) {
+            if (isset($current[$test->getName()])) {
+                $this->update($current[$test->getName()], $test);
+            } else {
+                $this->insert($test);
             }
-
-            d($test->getStats());
         }
+    }
+
+    private function insert($new)
+    {
+        Model\Test::insert(array(
+            'name' => $new->getName(),
+            'description' => $new->getDescription()
+        ));
+    }
+
+    private function update($current, $new)
+    {
+        Model\Test::update(array(
+            'id' => $current->id,
+            'name' => $new->getName(),
+            'description' => $new->getDescription()
+        ));
     }
 }

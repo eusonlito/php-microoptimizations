@@ -5,7 +5,7 @@ class ExplodeExtensionTest extends TestInterface
 {
     public function getDescription()
     {
-        return 'Obtain filename extension with explode';
+        return 'Obtain file extension with explode';
     }
 
     public function run($loop)
