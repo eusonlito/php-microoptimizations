@@ -1,11 +1,11 @@
 <?php
 namespace App\Repository\Code\Tests;
 
-class SumForeachArrayKeys extends TestInterface
+class SumForeachReferenceTest extends TestInterface
 {
     public function getDescription()
     {
-        return 'Create loop with foreach array_keys and sum value';
+        return 'Create loop with foreach and value as reference and sum value';
     }
 
     public function run($loop)
@@ -14,8 +14,8 @@ class SumForeachArrayKeys extends TestInterface
 
         $this->start($loop);
 
-        foreach (array_keys($values) as $key) {
-            $values[$key]++;
+        foreach ($values as &$value) {
+            $value++;
         }
 
         return $this->end();
