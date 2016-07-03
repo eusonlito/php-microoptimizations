@@ -6,7 +6,7 @@ use App\Database\Model;
 
 class ResultGenerate extends CommandInterface
 {
-    private $loops = array(10000, 100000, 1000000);
+    private $loops = array(10000, 100000, 200000);
 
     public function run($test)
     {
