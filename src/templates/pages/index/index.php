@@ -13,7 +13,7 @@
     </div>
 
     <div class="col-sm-4">
-        <h3>Common comparisons</h3>
+        <h3 class="text-center">Common comparisons</h3>
 
         <div class="list-group">
             <?php foreach (App\Repository\TestComparison::get() as $group) { ?>
