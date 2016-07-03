@@ -90,7 +90,7 @@ class Test
             'name' => $this->name,
             'description' => $this->test->getDescription(),
             'stats' => $this->stats,
-            'php' => phpversion()
+            'php' => PHP_MAJOR_VERSION.'.'.PHP_MINOR_VERSION.'.'.PHP_RELEASE_VERSION
         );
     }
 
