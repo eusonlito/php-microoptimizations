@@ -27,6 +27,13 @@ class TestsRun extends CommandInterface
 
             $stats = $test->getStats();
 
+            d(array(
+                'test' => $testDB->name,
+                'date' => $date,
+                'version' => $stats['php'],
+                'stats' => $stats['stats']
+            ));
+
             foreach ($stats['stats'] as $stat) {
                 Model\Result::insert(array(
                     'date' => $date,
