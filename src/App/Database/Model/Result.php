@@ -24,7 +24,7 @@ class Result
     public static function insert(array $data)
     {
         return DB::insert('
-            INSERT OR IGNORE INTO `result`
+            INSERT OR UPDATE INTO `result`
             (`date`, `loop`, `version`, `time`, `memory`, `test_id`)
             VALUES
             (:date, :loop, :version, :time, :memory, :test_id);
