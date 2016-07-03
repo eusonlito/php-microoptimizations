@@ -29,19 +29,22 @@ jQuery(function($) {
 
     $('form[data-action="compare"] select').on('change', function(e) {
         var $form = $(this).closest('form'),
-            location = WWW + 'test/compare',
-            selected = true;
+            location = '',
+            tests = 0;
 
         $form.find('select').each(function() {
             if (!$(this).val()) {
-                return selected = false;
+                return;
             }
 
             location += '/' + $(this).val();
+            tests++;
         });
 
-        if (selected === true) {
-            window.location = location;
+        if (tests === 1) {
+            window.location = WWW + 'test/detail' + location;
+        } else if (tests === 2) {
+            window.location = WWW + 'test/compare' + location;
         }
     });
 });
