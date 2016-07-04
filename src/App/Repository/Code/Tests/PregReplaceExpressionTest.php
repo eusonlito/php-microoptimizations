@@ -1,11 +1,11 @@
 <?php
 namespace App\Repository\Code\Tests;
 
-class ExplodeLargeTest extends TestInterface
+class PregReplaceExpressionTest extends TestInterface
 {
     public function getDescription()
     {
-        return 'Split a large string with explode and get the first element';
+        return 'Replace a text with preg_replace and a regular expression';
     }
 
     public function run($loop)
@@ -15,8 +15,7 @@ class ExplodeLargeTest extends TestInterface
         $this->start($loop);
 
         for ($i = 0; $i < $this->loop; ++$i) {
-            $value = explode(' ', $text);
-            $value = $value[0];
+            $value = preg_replace('/([Lorem]+) ([ipsum]+)/', '$1 $2', $text);
         }
 
         return $this->end();

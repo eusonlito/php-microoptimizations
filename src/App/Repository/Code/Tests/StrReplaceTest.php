@@ -1,11 +1,11 @@
 <?php
 namespace App\Repository\Code\Tests;
 
-class ExplodeLargeTest extends TestInterface
+class StrReplaceTest extends TestInterface
 {
     public function getDescription()
     {
-        return 'Split a large string with explode and get the first element';
+        return 'Replace a text with str_replace';
     }
 
     public function run($loop)
@@ -15,8 +15,7 @@ class ExplodeLargeTest extends TestInterface
         $this->start($loop);
 
         for ($i = 0; $i < $this->loop; ++$i) {
-            $value = explode(' ', $text);
-            $value = $value[0];
+            $value = str_replace('Lorem ipsum', 'Ipsum lorem', $text);
         }
 
         return $this->end();
