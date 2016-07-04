@@ -22,7 +22,7 @@ class Test extends Controller
         );
     }
 
-    public function detail($code)
+    public function detailController($code)
     {
         $data = $this->getData($code);
 
@@ -39,7 +39,7 @@ class Test extends Controller
         return $this->page('body', 'test.detail', $data);
     }
 
-    public function compare($code1, $code2)
+    public function compareController($code1, $code2)
     {
         $data1 = $this->getData($code1);
         $data2 = $this->getData($code2);

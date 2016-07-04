@@ -15,8 +15,8 @@ class ExplodeExtensionTest extends TestInterface
         $this->start($loop);
 
         for ($i = 0; $i < $this->loop; ++$i) {
-            $ext = explode('.', $file);
-            $value = strtolower(end($ext));
+            $value = explode('.', $file);
+            $value = strtolower(end($value));
         }
 
         return $this->end();

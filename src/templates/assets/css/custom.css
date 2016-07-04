@@ -1,38 +1,31 @@
-* {
-    border-radius: 0 !important;
-}
-
 body {
-    background: #CCC;
+    padding-top: 100px;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    text-transform: none;
+a {
+    color: #284F77;
 }
 
-footer a {
-    color: black;
-    font-weight: bold;
-}
-
-footer a:hover {
+a:hover {
     text-decoration: none;
 }
 
-.brand a {
-    color: white;
+pre {
+    background: #E6E6E6;
+    padding: 0 20px;
+    margin: 40px 0;
 }
 
-.box {
-    padding: 20px 100px;
-}
-
-.box.box-large {
+.block {
+    background: white;
     padding: 20px;
+    margin-bottom: 20px;
 }
 
-@media (max-width: 960px) {
-    .box {
-        padding: 20px;
-    }
+.navbar-brand {
+    color: #666;
+}
+
+.datatable {
+    font-size: 0.9rem;
 }

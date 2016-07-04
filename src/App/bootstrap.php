@@ -17,13 +17,8 @@ define('APP_LIBS_PATH', APP_BASE_PATH.'/src/App');
 define('APP_VENDOR_PATH', APP_BASE_PATH.'/vendor');
 
 require APP_VENDOR_PATH.'/autoload.php';
+require APP_LIBS_PATH.'/autoload.php';
 require APP_LIBS_PATH.'/helpers.php';
-
-if (is_file(APP_VENDOR_PATH.'/compiled.php')) {
-    require APP_VENDOR_PATH.'/compiled.php';
-} else {
-    require APP_LIBS_PATH.'/autoload.php';
-}
 
 register_shutdown_function(array('App\Handler\Shutdown', 'handle'));
 set_error_handler(array('App\Handler\Error', 'handle'));

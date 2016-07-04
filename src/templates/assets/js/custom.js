@@ -2,11 +2,13 @@ jQuery(function($) {
     'use strict';
 
     $('.datatable').DataTable({
+        bPaginate: false,
+        sDom: 'rt',
         initComplete: function() {
             this.api().columns().every(function() {
                 var column = this;
 
-                if (column.index() > 2) {
+                if (column.index() > 1) {
                     return;
                 }
 

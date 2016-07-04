@@ -10,7 +10,7 @@ class NotIssetTest extends TestInterface
 
     public function run($loop)
     {
-        $values = array_flip($this->getRangeStrings($loop));
+        $values = array_flip($this->getRange($loop));
 
         $this->start($loop);
 

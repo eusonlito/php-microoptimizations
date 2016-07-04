@@ -55,19 +55,11 @@ class Router
 
     private function parseController($controller)
     {
-        if (empty($controller)) {
-            return 'Index';
-        }
-
-        return ucfirst(camelCase($controller));
+        return ucfirst(camelCase($controller ?: 'index'));
     }
 
     private function parseMethod($method)
     {
-        if (empty($method)) {
-            return 'Index';
-        }
-
-        return camelCase($method);
+        return camelCase($method ?: 'index').'Controller';
     }
 }

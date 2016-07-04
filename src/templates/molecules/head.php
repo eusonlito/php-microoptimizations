@@ -9,15 +9,12 @@
 
 <?= meta()->tag('title'); ?>
 
-<link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
-<link href="//fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
-
 <?= packer()->css(array(
-    'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css',
-    'https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css',
-    '/css/dataTables.bootstrap.min.css',
-    '/css/business-casual.css',
-    '/css/custom.css'
+    'https://fonts.googleapis.com/css?family=Montserrat:700',
+    'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css',
+    '/css/dataTables.bootstrap4.min.css',
+    '/css/theme.css',
+    '/css/custom.css',
 )); ?>
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -32,10 +29,11 @@ var WWW = "<?= route('/') ?>";
 </script>
 
 <?= packer()->js(array(
-    'https://code.jquery.com/jquery-2.2.0.min.js',
-    'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js',
+    'https://code.jquery.com/jquery-2.2.4.min.js',
+    'https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.2/js/tether.min.js',
+    'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js',
     'https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js',
-    '/js/dataTables.bootstrap.min.js',
+    '/js/dataTables.bootstrap4.min.js',
     '/js/jquery.matchHeight.js',
-    '/js/custom.js'
+    '/js/custom.js',
 )); ?>

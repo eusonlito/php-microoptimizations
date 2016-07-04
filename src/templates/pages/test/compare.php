@@ -1,9 +1,9 @@
-<div class="box box-large">
-    <?php template()->show('molecules.compare', array(
-        'test1' => $test1['test']->name,
-        'test2' => $test2['test']->name
-    )); ?>
+<?php template()->show('molecules.compare', array(
+    'test1' => $test1['test']->name,
+    'test2' => $test2['test']->name
+)); ?>
 
+<div class="container block">
     <div class="row">
         <div class="col-sm-6">
             <?php template()->show('pages.test._detail', array(
