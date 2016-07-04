@@ -3,6 +3,7 @@ namespace App\Controller;
 
 use App\Repository\Code;
 use App\Database\Model;
+use App\Router\Bot;
 
 class Test extends Controller
 {
@@ -31,7 +32,9 @@ class Test extends Controller
 
         meta()->set('title', $data['test']->name.' - '.meta()->get('title'));
 
-        Model\Test::addVisit($data['test']->id);
+        if (!Bot::isBot()) {
+            Model\Test::addVisit($data['test']->id);
+        }
 
         return $this->page('body', 'test.detail', $data);
     }
@@ -49,7 +52,9 @@ class Test extends Controller
 
         list($data1['results'], $data2['results']) = Model\Helper\Result::compare($data1['results'], $data2['results']);
 
-        Model\StatCompare::addVisit($data1['test']->id, $data2['test']->id);
+        if (!Bot::isBot()) {
+            Model\StatCompare::addVisit($data1['test']->id, $data2['test']->id);
+        }
 
         return $this->page('body', 'test.compare', array(
             'test1' => $data1,

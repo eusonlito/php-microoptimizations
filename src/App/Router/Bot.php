@@ -1,73 +1,30 @@
 <?php
 namespace App\Router;
 
-class Router
+class Bot
 {
-    private $url;
-    private $parsed;
+    private static $bots = array();
+    private static $botsFile = '/resources/request/bots.txt';
 
-    public function __construct($url)
+    private static function getBots()
     {
-        $this->url = $url;
-        $this->parsed = $this->parseUrl($url);
-
-        return $this;
-    }
-
-    public function getMethod()
-    {
-        return $this->parsed['method'];
-    }
-
-    public function getController()
-    {
-        return $this->parsed['controller'];
-    }
-
-    public function getArguments()
-    {
-        return $this->parsed['arguments'];
-    }
-
-    public function getRoute()
-    {
-        return strtolower($this->parsed['controller'].'-'.$this->parsed['method']);
-    }
-
-    private function parseUrl($url)
-    {
-        $base = parse_url(Route::getPublicUrl());
-        $base['path'] = isset($base['path']) ? $base['path'] : '';
-
-        $url = parse_url($url);
-
-        $path = array_filter(explode('/', str_replace($base['path'], '', $url['path'])));
-
-        $url['controller'] = $this->parseController(array_shift($path));
-        $url['method'] = $this->parseMethod(array_shift($path));
-        $url['arguments'] = $path;
-        $url['query'] = isset($url['query']) ? $url['query'] : '';
-
-        parse_str($url['query'], $url['query']);
-
-        return $url;
-    }
-
-    private function parseController($controller)
-    {
-        if (empty($controller)) {
-            return 'Index';
+        if (self::$bots) {
+            return self::$bots;
         }
 
-        return ucfirst(camelCase($controller));
+        return self::$bots = file(APP_BASE_PATH.self::$botsFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
     }
 
-    private function parseMethod($method)
+    public static function isBot(array $data = array())
     {
-        if (empty($method)) {
-            return 'Index';
+        if (empty($_SERVER['HTTP_USER_AGENT'])) {
+            return true;
         }
 
-        return camelCase($method);
+        foreach (self::getBots() as $bot) {
+            if (preg_match('#'.preg_quote($bot, '#').'#', $_SERVER['HTTP_USER_AGENT'])) {
+                return true;
+            }
+        }
     }
 }
