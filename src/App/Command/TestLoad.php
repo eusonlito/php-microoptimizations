@@ -8,8 +8,6 @@ class TestLoad extends CommandInterface
 {
     public function run($test)
     {
-        $this->info(__('Checking test %s', $test));
-
         $testDB = Model\Test::byName($test);
         $test = Code\Test::getObject($test);
 
