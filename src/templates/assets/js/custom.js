@@ -50,26 +50,37 @@ jQuery(function($) {
         }
     });
 
-    $('[data-filter]').on('keyup', function(e) {
-        var $this = $(this),
-            value = $this.val();
+    var $filter = $('[data-filter]');
 
-        if (e.keyCode === 27) {
-            return $this.val('').trigger('keyup');
-        }
-
-        if ((e.keyCode === 13) || (e.keyCode === 40)){
-            return false;
-        }
-
-        $($this.data('filter')).each(function() {
-            var $element = $(this);
-
-            if ($element.text().indexOf(value) === -1) {
-                $element.hide();
-            } else {
-                $element.show();
-            }
+    if ($filter.length) {
+        $filter.each(function() {
+            $($(this).data('filter')).each(function() {
+                var $element = $(this);
+                $element.data('text', $element.text().toLowerCase());
+            });
         });
-    });
+
+        $filter.on('keyup', function(e) {
+            var $this = $(this),
+                value = $this.val().toLowerCase();
+
+            if (e.keyCode === 27) {
+                return $this.val('').trigger('keyup');
+            }
+
+            if ((e.keyCode === 13) || (e.keyCode === 40)){
+                return false;
+            }
+
+            $($this.data('filter')).each(function() {
+                var $element = $(this);
+
+                if ($element.data('text').indexOf(value) === -1) {
+                    $element.hide();
+                } else {
+                    $element.show();
+                }
+            });
+        });
+    }
 });

@@ -7,6 +7,7 @@ class TestComparison
     {
         return array(
             array('CamelCasePregReplaceTest', 'CamelCaseStringsTest'),
+            array('IncrementBeforeTest', 'IncrementAfterTest'),
             array('DateStrtotimeTest', 'ExplodeTest'),
             array('EmptyTest', 'NotIssetTest'),
             array('IssetTest', 'NotEmptyTest'),
