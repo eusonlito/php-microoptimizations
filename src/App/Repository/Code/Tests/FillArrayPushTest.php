@@ -1,11 +1,11 @@
 <?php
 namespace App\Repository\Code\Tests;
 
-class FillArrayTest extends TestInterface
+class FillArrayPushTest extends TestInterface
 {
     public function getDescription()
     {
-        return 'Fill an array with for';
+        return 'Fill an array with array_push';
     }
 
     public function run($loop)
@@ -15,7 +15,7 @@ class FillArrayTest extends TestInterface
         $values = array();
 
         for ($i = 0; $i < $this->loop; $i++) {
-            $values[] = $i;
+            array_push($values, $i);
         }
 
         return $this->end();

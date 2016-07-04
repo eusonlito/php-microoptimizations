@@ -1,11 +1,13 @@
 <?php
 namespace App\Repository\Code\Tests;
 
-class FillArrayTest extends TestInterface
+class FillArrayMergeTest extends TestInterface
 {
+    protected $loopLimit = 10000;
+
     public function getDescription()
     {
-        return 'Fill an array with for';
+        return 'Fill an array with array_merge';
     }
 
     public function run($loop)
@@ -15,7 +17,7 @@ class FillArrayTest extends TestInterface
         $values = array();
 
         for ($i = 0; $i < $this->loop; $i++) {
-            $values[] = $i;
+            $values = array_merge($values, array($i));
         }
 
         return $this->end();

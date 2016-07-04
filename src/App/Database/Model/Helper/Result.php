@@ -28,7 +28,7 @@ class Result
     private static function cleanGroups($group1, $group2)
     {
         foreach (array_keys($group1) as $key) {
-            if (empty($group2[$key])) {
+            if (empty($group2[$key]) && is_object($group1[$key])) {
                 $group1[$key]->percent = null;
             }
         }

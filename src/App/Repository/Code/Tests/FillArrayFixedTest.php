@@ -12,13 +12,11 @@ class FillArrayFixedTest extends TestInterface
 
     public function run($loop)
     {
-        $loop = $this->getLoop($loop);
-
         $this->start($loop);
 
-        $values = new SplFixedArray($loop);
+        $values = new SplFixedArray($this->loop);
 
-        for ($i = 0; $i < $loop; $i++) {
+        for ($i = 0; $i < $this->loop; $i++) {
             $values[$i] = $i;
         }
 
