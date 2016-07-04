@@ -5,13 +5,15 @@
         <div class="col-sm-8">
             <h4 class="text-xs-center">All tests</h4>
 
-            <div class="list-group">
+            <div class="form-group">
+                <input type="search" value="" placeholder="Filter..." class="form-control" data-filter="#main-list > a" />
+            </div>
+
+            <div class="list-group" id="main-list">
                 <?php foreach ($TESTS as $test) { ?>
                 <a href="<?= route('/test/detail/'.$test->name) ?>" class="list-group-item">
-                    <div class="card-block">
-                        <h4 class="list-group-item-heading"><?= $test->name ?></h4>
-                        <p class="list-group-item-text"><?= $test->description ?></p>
-                    </div>
+                    <h4 class="list-group-item-heading"><?= $test->name ?></h4>
+                    <p class="list-group-item-text"><?= $test->description ?></p>
                 </a>
                 <?php } ?>
             </div>

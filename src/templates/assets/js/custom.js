@@ -49,4 +49,27 @@ jQuery(function($) {
             window.location = WWW + 'test/compare' + location;
         }
     });
+
+    $('[data-filter]').on('keyup', function(e) {
+        var $this = $(this),
+            value = $this.val();
+
+        if (e.keyCode === 27) {
+            return $this.val('').trigger('keyup');
+        }
+
+        if ((e.keyCode === 13) || (e.keyCode === 40)){
+            return false;
+        }
+
+        $($this.data('filter')).each(function() {
+            var $element = $(this);
+
+            if ($element.text().indexOf(value) === -1) {
+                $element.hide();
+            } else {
+                $element.show();
+            }
+        });
+    });
 });
