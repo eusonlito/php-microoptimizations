@@ -8,7 +8,7 @@ abstract class Controller
 {
     public function __construct(Router $router)
     {
-        meta()->set('title', 'PHP micro-optimizations');
+        meta()->set('title', 'PHP benchmarks and optimizations');
 
         template()->share(array(
             'ROUTE' => $router->getRoute(),
