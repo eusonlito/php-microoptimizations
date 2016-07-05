@@ -10,7 +10,7 @@ class ResultAverage
         return DB::select('
             SELECT * FROM `result_average`
             WHERE `test_id` = :test_id
-            ORDER BY `loop` ASC, `percent` ASC;
+            ORDER BY `loop` DESC, `percent` ASC;
         ', array('test_id' => $test_id));
     }
 

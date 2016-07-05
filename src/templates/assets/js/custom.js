@@ -4,6 +4,7 @@ jQuery(function($) {
     $('.datatable').DataTable({
         bPaginate: false,
         sDom: 'rt',
+        aaSorting: [],
         initComplete: function() {
             this.api().columns().every(function() {
                 var column = this;
