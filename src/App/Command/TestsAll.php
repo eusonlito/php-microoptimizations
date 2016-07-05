@@ -2,7 +2,7 @@
 namespace App\Command;
 
 use App\App\Command;
-use App\Repository\Code\Test;
+use App\Database\Model\Test;
 
 class TestsAll extends CommandInterface
 {
@@ -13,7 +13,10 @@ class TestsAll extends CommandInterface
         $command->execute('tests-load');
         $command->execute('tests-clean');
 
-        $command->execute('results-generate');
-        $command->execute('results-percent');
+        foreach (Test::all() as $test) {
+            $command->execute('result-generate', array($test));
+            $command->execute('result-average', array($test));
+            $command->execute('result-average-percent', array($test));
+        }
     }
 }

@@ -17,7 +17,9 @@ class ResultGenerate extends CommandInterface
 
     private function loop($test, $loop)
     {
-        $test = Code\Test::getObject($test);
+        $test = $this->getTest($test);
+
+        $test = Code\Test::getObject($test->name);
         $stats = $test->run($loop);
 
         Model\Result::insert(array(

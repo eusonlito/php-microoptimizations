@@ -3,7 +3,7 @@ namespace App\Command;
 
 use Exception;
 use App\App\Command;
-use App\Repository\Code\Test;
+use App\Database\Model\Test;
 
 class ResultsGenerate extends CommandInterface
 {
@@ -12,7 +12,7 @@ class ResultsGenerate extends CommandInterface
         $debug = config('app');
         $debug = $debug['debug'];
 
-        foreach (Test::getAllNames() as $test) {
+        foreach (Test::getAll() as $test) {
             $command = new Command;
 
             try {

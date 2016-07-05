@@ -17,10 +17,24 @@ CREATE TABLE `result` (
     `version` VARCHAR NOT NULL DEFAULT '',
     `time` FLOAT NOT NULL DEFAULT '0',
     `memory` FLOAT NOT NULL DEFAULT '0',
-    `percent` INTEGER NOT NULL DEFAULT '0',
     `test_id` INTEGER NOT NULL,
 
     UNIQUE(`date`, `loop`, `version`, `test_id`),
+
+    FOREIGN KEY(`test_id`) REFERENCES `test`(`id`) ON DELETE CASCADE
+);
+
+DROP TABLE IF EXISTS `result_average`;
+CREATE TABLE `result_average` (
+    `id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    `loop` INTEGER NOT NULL DEFAULT '0',
+    `version` VARCHAR NOT NULL DEFAULT '',
+    `time` FLOAT NOT NULL DEFAULT '0',
+    `memory` FLOAT NOT NULL DEFAULT '0',
+    `percent` INTEGER NOT NULL DEFAULT '0',
+    `test_id` INTEGER NOT NULL,
+
+    UNIQUE(`loop`, `version`, `test_id`),
 
     FOREIGN KEY(`test_id`) REFERENCES `test`(`id`) ON DELETE CASCADE
 );

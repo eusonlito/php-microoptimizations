@@ -19,7 +19,7 @@ class Result
         $groups = array();
 
         foreach ($results as $row) {
-            $groups[$row->date.'|'.$row->version.'|'.$row->loop]['results'] = $row;
+            $groups[$row->version.'|'.$row->loop]['results'] = $row;
         }
 
         return $groups;
