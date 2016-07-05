@@ -2,7 +2,8 @@
 
 # Contributions
 
-All tests must realize a minimum operation into loop (like a counter).
+* All tests must realize a minimum operation into loop (like a counter or a variable assignment).
+* Code must be able to work with PHP >=5.3.29
 
 ## With fork/pull-request
 
