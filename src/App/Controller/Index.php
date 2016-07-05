@@ -7,7 +7,9 @@ class Index extends Controller
 {
     public function indexController()
     {
-        return $this->page('body', 'index.index');
+        return $this->page('body', 'index.index', array(
+            'top' => Model\StatCompare::topPairs(10)
+        ));
     }
 
     public function aboutController()

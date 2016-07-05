@@ -2,6 +2,7 @@
 namespace App\Database\Model;
 
 use App\Database\DB;
+use App\Router\Router;
 
 class Test
 {
@@ -49,11 +50,31 @@ class Test
 
     public static function addVisit($id)
     {
+        $data = array(
+            'id' => $id,
+            'ip' => Router::getClientIp()
+        );
+
+        $exists = DB::selectOne('
+            SELECT `id` FROM `test`
+            WHERE (
+                `ip` = :ip
+                AND `id` = :id
+            )
+            LIMIT 1;
+        ', $data);
+
+        if ($exists) {
+            return;
+        }
+
         return DB::update('
             UPDATE `test`
-            SET `visits` = `visits` + 1
+            SET
+                `visits` = `visits` + 1
+                , `ip` = :ip
             WHERE id = :id;
-        ', array('id' => $id));
+        ', $data);
     }
 
     public static function deleteById($id)

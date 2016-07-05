@@ -34,6 +34,17 @@ class Router
         return strtolower($this->parsed['controller'].'-'.$this->parsed['method']);
     }
 
+    public static function getClientIP()
+    {
+        return !empty($_SERVER['HTTP_CLIENT_IP']) ? $_SERVER['HTTP_CLIENT_IP']
+            : !empty($_SERVER['HTTP_X_FORWARDED_FOR']) ? $_SERVER['HTTP_X_FORWARDED_FOR']
+            : !empty($_SERVER['HTTP_X_FORWARDED']) ? $_SERVER['HTTP_X_FORWARDED']
+            : !empty($_SERVER['HTTP_FORWARDED_FOR']) ? $_SERVER['HTTP_FORWARDED_FOR']
+            : !empty($_SERVER['HTTP_FORWARDED']) ? $_SERVER['HTTP_FORWARDED']
+            : !empty($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR']
+            : 'UNKNOWN';
+    }
+
     private function parseUrl($url)
     {
         $base = parse_url(Route::getPublicUrl());
