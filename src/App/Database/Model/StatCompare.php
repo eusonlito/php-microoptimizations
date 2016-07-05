@@ -9,7 +9,7 @@ class StatCompare
     public static function topPairs($limit)
     {
         return DB::select('
-            SELECT `t1`.`name` `t1_name`, `t2`.`name` `t2_name`
+            SELECT `t1`.`name` `name1`, `t2`.`name` `name2`
             FROM `stat_compare` `st`, `test` `t1`, `test` `t2`
             WHERE (
                 `t1`.`id` = `st`.`test_id_1`

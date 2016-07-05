@@ -20,10 +20,20 @@
         </div>
 
         <div class="col-sm-4">
-            <h4 class="text-xs-center">Common comparisons</h4>
+            <h4 class="text-xs-center">Top comparisons</h4>
 
             <div class="list-group">
-                <?php foreach (App\Repository\TestComparison::get() as $group) { ?>
+                <?php foreach ($top as $group) { ?>
+                <a href="<?= route('/test/compare/'.$group->name1.'/'.$group->name2); ?>" class="list-group-item">
+                   <?= $group->name1; ?> vs <?= $group->name2; ?>
+                </a>
+                <?php } ?>
+            </div>
+
+            <br /><h4 class="text-xs-center">Common comparisons</h4>
+
+            <div class="list-group">
+                <?php foreach ($common as $group) { ?>
                 <a href="<?= route('/test/compare/'.$group[0].'/'.$group[1]); ?>" class="list-group-item">
                    <?= $group[0]; ?> vs <?= $group[1]; ?>
                 </a>
