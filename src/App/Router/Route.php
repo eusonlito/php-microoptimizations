@@ -24,8 +24,8 @@ class Route
         self::$routes['config_path'] = APP_BASE_PATH.'/config';
         self::$routes['template_path'] = APP_BASE_PATH.'/src/templates';
 
-        self::$routes['public_url'] = preg_replace('|^'.self::$routes['document_root'].'|i', '', self::$routes['public_path']) ?: '/';
-        self::$routes['public_url'] = rtrim(self::$routes['connection_scheme'].'://'.getenv('SERVER_NAME').self::$routes['public_url'], '/');
+        self::$routes['public_url_path'] = preg_replace('|^'.self::$routes['document_root'].'|i', '', self::$routes['public_path']) ?: '/';
+        self::$routes['public_url'] = rtrim(self::$routes['connection_scheme'].'://'.getenv('SERVER_NAME').self::$routes['public_url_path'], '/');
     }
 
     public static function __callStatic($name, array $arguments)

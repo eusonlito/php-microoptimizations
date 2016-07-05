@@ -1,3 +1,4 @@
 <?php return array(
-    'debug' => false
+    'debug' => false,
+    'url' => 'http://localhost'
 );

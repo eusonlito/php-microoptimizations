@@ -14,6 +14,11 @@ class Router
         return $this;
     }
 
+    public function getUrl()
+    {
+        return $this->url;
+    }
+
     public function getMethod()
     {
         return $this->parsed['method'];
