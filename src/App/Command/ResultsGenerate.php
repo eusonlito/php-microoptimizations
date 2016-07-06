@@ -12,7 +12,7 @@ class ResultsGenerate extends CommandInterface
         $debug = config('app');
         $debug = $debug['debug'];
 
-        foreach (Test::getAll() as $test) {
+        foreach (Test::all() as $test) {
             $command = new Command;
 
             try {
