@@ -48,8 +48,6 @@ abstract class TestInterface
             $source .= preg_replace('/^\s{8}/', '', $line);
         }
 
-        $source = str_replace(array('$this->start($loop);', 'return $this->end();'), '', $source);
-
         return $this->source = trim(preg_replace('/\n{2,}/', "\n\n", $source));
     }
 
