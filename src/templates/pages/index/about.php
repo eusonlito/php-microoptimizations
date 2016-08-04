@@ -5,5 +5,6 @@
         <p>Time in seconds is an average for all tests (one daily) for each test/version</p>
         <p>Using <a href="https://github.com/eusonlito/phpfarm" target="_blank"><strong>phpfarm</strong></a> to perform tests</p>
         <p>More info and collaborations in <a href="https://github.com/eusonlito/php-microoptimizations" target="_blank"><strong>GitHub</strong></a></p>
+        <p>If you want collaborate to improve this server, you can do it in my PayPal account paypal@eordes.com thanks :)</p>
     </section>
 </div>
