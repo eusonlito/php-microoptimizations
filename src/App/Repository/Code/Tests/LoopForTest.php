@@ -10,7 +10,7 @@ class LoopForTest extends TestInterface
 
     public function run($loop)
     {
-        $values = $this->getRangeStrings($loop);
+        $values = $this->getRange($loop);
 
         $this->start($loop);
 
