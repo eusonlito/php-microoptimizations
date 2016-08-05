@@ -12,13 +12,9 @@ class AssignThreeDoubleQuoteCodeBracketsTest extends TestInterface
     {
         $this->start($loop);
 
-        ob_start();
-
         for ($i = 0; $i < $this->loop; ++$i) {
             $value = "Lorem {$i} ipsum {$i} dolor {$i} amet";
         }
-
-        ob_end_clean();
 
         return $this->end();
     }

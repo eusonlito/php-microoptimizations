@@ -12,13 +12,9 @@ class AssignDoubleQuoteCodeTest extends TestInterface
     {
         $this->start($loop);
 
-        ob_start();
-
         for ($i = 0; $i < $this->loop; ++$i) {
             $value = "Lorem $i ipsum dolor sit amet, consectetur adipiscing elit. Proin malesuada, nisl sit amet congue blandit";
         }
-
-        ob_end_clean();
 
         return $this->end();
     }
