@@ -17,8 +17,7 @@ class LoopForTest extends TestInterface
         $count = count($values);
 
         for ($i = 0; $i < $count; $i++) {
-            $value = $values[$i];
-            $value++;
+            $values[$i]++;
         }
 
         return $this->end();
