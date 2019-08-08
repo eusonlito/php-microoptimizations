@@ -14,8 +14,10 @@ class LoopWhileTest extends TestInterface
 
         $this->start($loop);
 
-        while (list($key) = each($values)) {
+        while ($key = key($values)) {
             $values[$key]++;
+
+            next($values);
         }
 
         return $this->end();
