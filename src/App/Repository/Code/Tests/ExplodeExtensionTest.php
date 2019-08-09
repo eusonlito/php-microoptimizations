@@ -10,9 +10,9 @@ class ExplodeExtensionTest extends TestInterface
 
     public function run($loop)
     {
-        $file = '/tmp/'.uniqid().'.jpg';
-
         $this->start($loop);
+
+        $file = '/tmp/'.uniqid().'.jpg';
 
         for ($i = 0; $i < $this->loop; ++$i) {
             $value = explode('.', $file);
