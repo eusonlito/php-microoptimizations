@@ -29,3 +29,9 @@ pre {
 .datatable {
     font-size: 0.9rem;
 }
+
+@media (min-width: 1440px) {
+    .container {
+        max-width: 1440px;
+    }
+}
