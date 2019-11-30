@@ -29,7 +29,7 @@ var WWW = "<?= route('/') ?>";
 </script>
 
 <?= packer()->js(array(
-    'https://code.jquery.com/jquery-3.4.1.slim.min.js',
+    'https://code.jquery.com/jquery-2.2.4.min.js',
     'https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.2/js/tether.min.js',
     'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js',
     'https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js',
