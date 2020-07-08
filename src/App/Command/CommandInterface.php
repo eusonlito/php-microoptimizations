@@ -1,6 +1,7 @@
 <?php
 namespace App\Command;
 
+use Exception;
 use App\Database\Model\Test;
 
 abstract class CommandInterface
@@ -14,8 +15,16 @@ abstract class CommandInterface
         }
     }
 
-    protected function getTest($test)
+    protected function getTest($name)
     {
-        return is_object($test) ? $test : Test::byName($test);
+        if (is_object($name)) {
+            return $name;
+        }
+
+        if ($test = Test::byName($name)) {
+            return $test;
+        }
+
+        throw new Exception(sprintf('Tests %s not exists', $name));
     }
 }
