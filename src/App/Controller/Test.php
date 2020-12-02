@@ -17,7 +17,7 @@ class Test extends Controller
 
         return array(
             'test' => $test,
-            'results' => Model\ResultAverage::byTest($test->id),
+            'results' => Model\Helper\Result::versionSort(Model\ResultAverage::byTest($test->id)),
             'source' => Code\Test::getObject($test->name)->getSource()
         );
     }

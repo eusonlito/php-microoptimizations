@@ -3,6 +3,15 @@ namespace App\Database\Model\Helper;
 
 class Result
 {
+    public static function versionSort($results)
+    {
+        usort($results, function ($a, $b) {
+            return version_compare($a->version, $b->version);
+        });
+
+        return $results;
+    }
+
     public static function compare($results1, $results2)
     {
         $groups1 = self::getGroups($results1);
