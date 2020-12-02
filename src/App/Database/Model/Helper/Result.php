@@ -6,7 +6,11 @@ class Result
     public static function versionSort($results)
     {
         usort($results, function ($a, $b) {
-            return version_compare($a->version, $b->version, '>');
+            if ($a->loops > $b->loops) {
+                return -1;
+            }
+
+            return version_compare($a->version, $b->version, '<');
         });
 
         return $results;
